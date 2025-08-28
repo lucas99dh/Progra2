@@ -2,7 +2,6 @@ package org.uade.algorithm;
 
 import org.uade.structure.definition.LinkedListADT;
 import org.uade.structure.implementation.dynamic.DynamicLinkedListADT;
-import org.uade.structure.implementation.fixed.StaticLinkedListADT;
 
 import static org.uade.structure.util.LinkedListADTUtil.createLinkedListADT;
 import static org.uade.structure.util.LinkedListADTUtil.print;
@@ -19,27 +18,31 @@ public class AdditionalExercise2 {
         list.add(4);
         list.add(5);
         list.add(4);
+        list.add(1);
+        list.add(2);
 
-        LinkedListADT result = desDuplicatedLista(list);
+        LinkedListADT result = dropDuplicatedList(list);
 
         print(result);
     }
 
-    private static LinkedListADT desDuplicatedLista(LinkedListADT list){
+    private static LinkedListADT dropDuplicatedList(LinkedListADT list){
         LinkedListADT result = createLinkedListADT(list);
 
-        int value;
+        result.add(list.get(0));
 
-        for(int i=0; i < list.size(); i++){
-            value = list.get(i);
+        boolean duplicated = false;
 
-            for(int j=0; j < result.size(); j++){
-                if(result.get(j) == value){
-                    result.remove(j);
+        for(int i=1; i < list.size(); i++){
+                for (int j = 0; j < result.size(); j++){
+                   if(list.get(i) == result.get(j)) {
+                       duplicated = true;
+                   }
+                } if (!duplicated) {
+                    result.add(list.get(i));
                 }
-            }
+                duplicated = false;
         }
-
         return result;
     }
 }
