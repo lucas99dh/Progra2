@@ -1,9 +1,7 @@
-package org.uade.algorithm;
+package org.uade.algorithm.list;
 
 import org.uade.structure.definition.LinkedListADT;
 import org.uade.structure.implementation.dynamic.DynamicLinkedListADT;
-
-import java.util.LinkedList;
 
 import static org.uade.structure.util.LinkedListADTUtil.createLinkedListADT;
 import static org.uade.structure.util.LinkedListADTUtil.print;

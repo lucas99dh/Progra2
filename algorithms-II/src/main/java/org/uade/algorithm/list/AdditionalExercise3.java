@@ -1,4 +1,4 @@
-package org.uade.algorithm;
+package org.uade.algorithm.list;
 
 import org.uade.structure.definition.LinkedListADT;
 import org.uade.structure.implementation.dynamic.DynamicLinkedListADT;
