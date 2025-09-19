@@ -35,8 +35,7 @@ public class DynamicPriorityQueueADT implements PriorityQueueADT {
         }
 
         // Convención: menor número = mayor prioridad.
-        // Insertamos ORDENADO y ESTABLE (si hay empate, va DESPUÉS de los iguales).
-        if (priority < head.priority) { // si es más prioritaria que el head, va primero
+        if (priority < head.priority) {
             n.next = head;
             head = n;
             return;
@@ -44,16 +43,13 @@ public class DynamicPriorityQueueADT implements PriorityQueueADT {
 
         Node prev = head;
         Node cur = head.next;
-        // Avanzar mientras las prioridades de la lista sean <= a la nueva (estable)
+
         while (cur != null && cur.priority <= priority) {
             prev = cur;
             cur = cur.next;
         }
         prev.next = n;
         n.next = cur;
-
-        // Si tu regla fuera "mayor número = mayor prioridad", usa:
-        // if (priority > head.priority) ... y en el while (cur != null && cur.priority >= priority)
     }
 
     @Override
